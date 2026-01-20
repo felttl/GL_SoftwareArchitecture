@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Customer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">refactored0</a> &gt; <a href="index.source.html" class="el_package">refactored</a> &gt; <span class="el_source">Customer.java</span></div><h1>Customer.java</h1><pre class="source lang-java linenums">package refactored;
+
+import java.util.ArrayList;
+import java.util.Enumeration;
+
+public class Customer {
+	private String name;
+<span class="nc" id="L8">	private ArrayList&lt;Rental&gt; rentals = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L10">	public Customer(String name) {</span>
+<span class="nc" id="L11">		this.name = name;</span>
+<span class="nc" id="L12">	}</span>
+
+	public void addRental(Rental rental) {
+<span class="nc" id="L15">		this.rentals.add(rental);</span>
+<span class="nc" id="L16">	}</span>
+
+	public String getName() {
+<span class="nc" id="L19">		return this.name;</span>
+	}
+
+	public String statement() {
+<span class="nc" id="L23">		double totalAmount = 0;</span>
+<span class="nc" id="L24">		int frequentRenterPoints = 0;</span>
+<span class="nc" id="L25">		String result = &quot;Rental Record for &quot; + this.getName() + &quot;\n&quot;;</span>
+<span class="nc" id="L26">		double amount = 0;</span>
+<span class="nc" id="L27">		int index = 0;</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">		for (; index &lt; this.rentals.size(); index++) {</span>
+<span class="nc" id="L29">			Rental current = rentals.get(index);</span>
+<span class="nc" id="L30">			amount = this.getAmount(current);</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">			if ((current.getMovie().getPriceCode() == MovieState.NEW_RELEASE)</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">			 &amp;&amp; (current.getDaysRented() &gt; 1))</span>
+<span class="nc" id="L33">				frequentRenterPoints++;</span>
+<span class="nc" id="L34">			result += this.stringyfy(current, amount);</span>
+<span class="nc" id="L35">			totalAmount += amount;			</span>
+		}
+<span class="nc" id="L37">		result += &quot;Amount owned is &quot; + String.valueOf(totalAmount) +</span>
+				&quot;\n&quot;;
+<span class="nc" id="L39">		result += &quot;You earned &quot; + String.valueOf(-1+index+frequentRenterPoints) +</span>
+				&quot; frequent renter points&quot;;
+<span class="nc" id="L41">		return result;</span>
+	}
+	private String stringyfy(Rental rental, double amount){
+<span class="nc" id="L44">		return &quot;\t&quot; + rental.getMovie().getTitle() + &quot;\t&quot; +</span>
+<span class="nc" id="L45">					String.valueOf(amount) + &quot; \n&quot;;</span>
+	}
+	private double getAmount(Rental each){
+<span class="nc" id="L48">		double amount = 0f;</span>
+<span class="nc" id="L49">		var type = each.getMovie().getPriceCode();</span>
+<span class="nc" id="L50">		final double valueFactor = 1.5d;</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">		if (type == MovieState.REGULAR){</span>
+<span class="nc" id="L52">			amount += 2;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">			if (each.getDaysRented() &gt; 2) {</span>
+<span class="nc" id="L54">				amount += each.getDaysRented() * valueFactor - 3;</span>
+			}
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		} else if (type == MovieState.NEW_RELEASE){</span>
+<span class="nc" id="L57">			amount += each.getDaysRented() * valueFactor * 2;</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">		} else if (type == MovieState.CHILDRENS){</span>
+<span class="nc" id="L59">			amount += 1.5;</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">			if (each.getDaysRented() &gt; 3)</span>
+<span class="nc" id="L61">				amount += each.getDaysRented() * valueFactor - 4.5;</span>
+		}
+<span class="nc" id="L63">		return amount;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# before running next command do these commands: 
+#     "mvn clean" and "mvn compile" and "mvn test"
+# run this file with : "./jacocoShow"
+REPORT="target/site/jacoco/index.html"
+
+if [ ! -f "$REPORT" ]; then
+  echo "❌ Rapport JaCoCo introuvable : $REPORT"
+  exit 1
+fi
+# soluce custom avec le CREMI pour ouvrir une fenetre directement
+# et gagner du temps (pas besoin de chercher de fichier ni
+# d'essayer d'ouvrir le fichier avec un navigateur)
+
+# Ouvre avec Brave temporaire si Brave installé,
+# sinon navigateur par défaut
+if command -v brave-browser >/dev/null 2>&1; then
+  /usr/bin/brave-browser --user-data-dir=$(mktemp -d) --new-window "$REPORT" &
+elif command -v xdg-open >/dev/null 2>&1; then
+  xdg-open "$REPORT"
+elif command -v open >/dev/null 2>&1; then
+  open "$REPORT"
+else
+  echo "❌ Impossible d’ouvrir le navigateur automatiquement"
+fi
