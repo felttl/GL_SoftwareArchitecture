@@ -1,0 +1,41 @@
+@startuml
+
+' Décrivez les interactions entre vos objets pendant
+' l'exécution de ce programme en utilisant la notation UML.
+
+skinparam roundcorner 30
+skinparam shadowing false
+skinparam backgroundColor #F8F9FB
+skinparam actorStyle awesome
+
+actor user as u #FEC3AC
+participant AppSystem as s #E57C12
+entity Customer as c #00A1D1
+entity Rental as r #00A1D1
+entity Movie as m #00A1D1
+
+group #AACCFF refactored (package)
+    u --> s: input name
+    activate s #E57C12
+        s --> c: create
+        activate c #00A1D1
+        loop #ffffffaa add rental and necessary info
+            s --> u: ask informations
+            u --> s: input informations
+            s --> c: create and fill with info
+            c --> r: create
+            activate r #00A1D1
+                r --> m: instanciate
+                activate m #00A1D1
+                    m --> r: add to
+                deactivate m
+            c <-- r: add new rental(s)
+            deactivate r
+            s <-- c: add to
+            deactivate c
+        end loop
+        u --> s: ask for informations
+        u <-- s: reply
+    deactivate s
+end group
+@enduml

@@ -1,0 +1,60 @@
+@startuml
+
+' Décrivez les interactions entre vos objets pendant
+' l'exécution de ce programme en utilisant la notation UML.
+
+skinparam actorStyle awesome
+
+class Customer {
+    - name: String
+    - rentals: ArrayList<Rental>
+    --
+    + Customer(String name)
+    --
+    + addRental(Rental rental)
+    + statement(): String
+    // english statement
+    + statementFR(): String
+    <<description en français>>
+
+    + getName(): String
+    + setName(String name)
+}
+class Movie {
+    - title: String
+    - priceCode: MovieState
+    --
+    + Movie(String title, MovieState priceCode)
+    --
+    + getPriceCode(): MovieState
+    + setPriceCode(MovieState priceCode)
+    + getTitle(): String
+}
+class Rental {
+    - movie: Movie
+    - daysRented: int
+    --
+    + Rental(Movie movie, int daysRented)
+    --
+    + getDaysRented(): int
+    + getMovie(): Movie
+
+    + getPointsAmount(): double
+    // the number of points earned
+    + canEarnExtraPoints(): boolean
+    // know if add bonus points in specific conditions
+    + toString(): String
+    // keep the default one (from the non refactored prog)
+    + toStringFR()
+    // match final requirements (constraints to project)
+}
+enum MovieState {
+    REGULAR
+    NEW_RELEASE
+    CHILDRENS
+}
+Object -- Rental
+Object -- Movie
+Object -- Customer
+
+@enduml
