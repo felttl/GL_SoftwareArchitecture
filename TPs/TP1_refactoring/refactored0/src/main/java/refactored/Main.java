@@ -2,8 +2,7 @@ package refactored;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Un client a loué les fims :");
-        var customer = new Customer("felix");
+        var customer = new Customer("Un client");
         customer.addRental(
             new Rental(
                 new Movie(
@@ -25,6 +24,6 @@ public class Main {
                 MovieState.REGULAR), 
             4) 
         );
-        System.out.println(customer.statement());
+        System.out.println(customer.statementFR());
     }
 }

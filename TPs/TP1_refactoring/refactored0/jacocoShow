@@ -20,7 +20,8 @@ if command -v brave-browser >/dev/null 2>&1; then
 elif command -v xdg-open >/dev/null 2>&1; then
   xdg-open "$REPORT"
 elif command -v open >/dev/null 2>&1; then
-  open "$REPORT"
+  echo "system: macos\n(opening with arc browser)\n"
+  open -a "Arc" "$REPORT"
 else
   echo "❌ Impossible d’ouvrir le navigateur automatiquement"
 fi
