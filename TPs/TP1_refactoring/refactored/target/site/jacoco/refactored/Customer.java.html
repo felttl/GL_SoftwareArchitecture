@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Customer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">refactored0</a> &gt; <a href="index.source.html" class="el_package">refactored</a> &gt; <span class="el_source">Customer.java</span></div><h1>Customer.java</h1><pre class="source lang-java linenums">package refactored;
+
+import java.util.ArrayList;
+
+public class Customer {
+	private String name;
+<span class="nc" id="L7">	private ArrayList&lt;Rental&gt; rentals = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L9">	public Customer(String name) {</span>
+<span class="nc" id="L10">		this.name = name;</span>
+<span class="nc" id="L11">	}</span>
+
+	public void addRental(Rental rental) {
+<span class="nc" id="L14">		this.rentals.add(rental);</span>
+<span class="nc" id="L15">	}</span>
+
+	public String statement() {
+<span class="nc" id="L18">		double totalAmount = 0;</span>
+<span class="nc" id="L19">		int frequentRenterPoints = 0;</span>
+<span class="nc" id="L20">		String result = &quot;Rental Record for &quot; + this.getName() + &quot;\n&quot;;</span>
+		double amount;
+<span class="nc" id="L22">		int index = 0;</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">		for (; index &lt; this.rentals.size(); index++) {</span>
+<span class="nc" id="L24">			Rental current = rentals.get(index);</span>
+<span class="nc" id="L25">			amount = current.getPointsAmount();</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">			if (current.canEarnExtraPoints())</span>
+<span class="nc" id="L27">				frequentRenterPoints++;</span>
+<span class="nc" id="L28">			result += current.toString();</span>
+<span class="nc" id="L29">			totalAmount += amount;			</span>
+		}
+<span class="nc" id="L31">		result += &quot;Amount owned is &quot; + String.valueOf(totalAmount) +</span>
+				&quot;\n&quot;;
+<span class="nc" id="L33">		result += &quot;You earned &quot; + String.valueOf(-1+index+frequentRenterPoints) +</span>
+				&quot; frequent renter points&quot;;
+<span class="nc" id="L35">		return result;</span>
+	}
+	/**
+	 * permet d'obtenir une description du statement en français
+	 * 
+	 * (containte du prof d'avoir un affichage spécifique)
+	 */
+	public String statementFR(){
+<span class="nc" id="L43">		StringBuilder result = new StringBuilder(String.format(</span>
+			&quot;%s a loue des films:\n&quot;, 
+			this.name
+		));
+<span class="nc" id="L47">		final int leng = this.rentals.size();</span>
+		Rental current;
+<span class="nc bnc" id="L49" title="All 2 branches missed.">		for (int i = 0; i &lt; leng; i++) {</span>
+<span class="nc" id="L50">			current = rentals.get(i);</span>
+<span class="nc" id="L51">			result.append(current.toStringFR())</span>
+<span class="nc bnc" id="L52" title="All 4 branches missed.">			 .append(leng &gt; 0 &amp;&amp; i != leng-1 ? &quot;,&quot; : &quot;.&quot;)	</span>
+<span class="nc" id="L53">			 .append(&quot;\n&quot;);</span>
+		}
+<span class="nc" id="L55">		return result.toString();</span>
+	}
+
+
+	public String getName() {
+<span class="nc" id="L60">		return this.name;</span>
+	}
+
+	public void setName(String name){
+<span class="nc" id="L64">		this.name = name;</span>
+<span class="nc" id="L65">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

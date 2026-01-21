@@ -1,6 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-refactored0,refactored,Customer,160,0,16,0,39,0,14,0,6,0
-refactored0,refactored,Rental,0,15,0,0,0,6,0,3,0,3
-refactored0,refactored,Movie,0,19,0,0,0,8,0,4,0,4
-refactored0,refactored,MovieState,0,21,0,0,0,4,0,1,0,1
-refactored0,refactored,Main,49,0,0,0,8,0,2,0,2,0
