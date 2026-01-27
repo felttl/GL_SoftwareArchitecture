@@ -1,6 +1,6 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 refactored0,refactored,Customer,152,0,10,0,36,0,11,0,6,0
-refactored0,refactored,Rental,64,101,5,13,8,22,6,10,2,5
+refactored0,refactored,Rental,64,101,6,12,8,22,7,9,2,5
 refactored0,refactored,Movie,0,19,0,0,0,8,0,4,0,4
 refactored0,refactored,MovieState,0,21,0,0,0,4,0,1,0,1
 refactored0,refactored,Main,46,0,0,0,7,0,2,0,2,0
