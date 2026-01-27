@@ -25,4 +25,4 @@ replay_pid*
 
 .DS_Store
 
-TPs/TP1_refactoring/refactored/target/**
+./TPs/TP1_refactoring/refactored/target
