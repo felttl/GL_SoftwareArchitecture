@@ -24,22 +24,5 @@ hs_err_pid*
 replay_pid*
 
 .DS_Store
-./TPs/TP1_refactoring/refactored0/target/**
-TPs/TP1_refactoring/refactored/target/jacoco.exec
-TPs/TP1_refactoring/refactored/target/jacoco.exec
-TPs/TP1_refactoring/refactored/target/jacoco.exec
-TPs/TP1_refactoring/refactored/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
-TPs/TP1_refactoring/refactored/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
-TPs/TP1_refactoring/refactored/target/site/jacoco/index.html
-TPs/TP1_refactoring/refactored/target/site/jacoco/jacoco-sessions.html
-TPs/TP1_refactoring/refactored/target/site/jacoco/jacoco.csv
-TPs/TP1_refactoring/refactored/target/site/jacoco/jacoco.xml
-TPs/TP1_refactoring/refactored/target/site/jacoco/refactored/index.html
-TPs/TP1_refactoring/refactored/target/site/jacoco/refactored/index.source.html
-TPs/TP1_refactoring/refactored/target/site/jacoco/refactored/Rental.html
-TPs/TP1_refactoring/refactored/target/site/jacoco/refactored/Rental.java.html
-.gitignore
-TPs/TP1_refactoring/refactored/target/surefire-reports/refactored.MovieTest.txt
-TPs/TP1_refactoring/refactored/target/surefire-reports/TEST-main.MovieTest.xml
-TPs/TP1_refactoring/refactored/target/surefire-reports/TEST-main.RentalTest.xml
-TPs/TP1_refactoring/refactored/target/surefire-reports/TEST-refactored.MovieTest.xml
+
+TPs/TP1_refactoring/refactored/target/**
