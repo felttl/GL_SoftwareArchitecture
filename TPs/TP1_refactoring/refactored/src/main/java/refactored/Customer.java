@@ -56,6 +56,8 @@ public class Customer {
 	 * permet d'obtenir une description du statement en français
 	 * 
 	 * (containte du prof d'avoir un affichage spécifique)
+	 * 
+	 * DP builder (delegate) 
 	 */
 	public String statementFR(){
 		StringBuilder result = new StringBuilder(String.format(
