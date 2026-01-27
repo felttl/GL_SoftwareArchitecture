@@ -1,3 +1,4 @@
 refactored/MovieTest.class
-main/RentalTest$1.class
-main/RentalTest.class
+refactored/RentalTest.class
+refactored/RentalTest$1.class
+refactored/CustomerTest.class

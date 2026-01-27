@@ -1,4 +1,4 @@
-package main;
+package refactored;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,6 +13,18 @@ import refactored.MovieState;
 import refactored.Rental;
 
 public class RentalTest {
+
+    final private String title;
+    final private Movie movie;
+    final private MovieState type;
+
+    public RentalTest(){
+        this.title = "Rogue One";
+        this.type = MovieState.NEW_RELEASE;
+        this.movie = new Movie(
+            this.title,this.type
+        ); 
+    }
 
     @Test
     public void daysRentedTest(){
@@ -112,7 +124,8 @@ public class RentalTest {
         for (short idx = 0; idx < testNumber; idx++) {
             rdt = random.nextInt(types.size());
             rdType = types.get(rdt);
-            rdDays = random.nextInt(100);
+            rdDays = (idx+1) % 5;
+            if (idx == 5) rdDays = 0;
             movie = new Movie(title, rdType);
             rental = new Rental(movie, rdDays);
             double amount = 0d;
@@ -141,5 +154,54 @@ public class RentalTest {
                 junitDelta
             );            
         }
+    }
+    @Test
+    public void toStringTest(){
+        Random random = ThreadLocalRandom.current();
+        final String title = "osef";
+        Movie movie = new Movie(title,MovieState.CHILDRENS);
+        final int daysRented = random.nextInt(10);
+        Rental rental = new Rental(movie, daysRented);
+
+        final String rentalStr = rental.toString();
+        final String rentalStrExpected = String.format(
+            "%s %s %s %f %s",
+            "\t", title,
+            "\t", rental.getPointsAmount(), "\n"
+        );
+        final boolean areEqual = rentalStr.equals(rentalStrExpected);
+        if (!areEqual){
+            System.out.println("exp: "+rentalStrExpected);
+            System.out.println("rea: "+rentalStr);            
+        }
+        assertEquals(true, areEqual);
+    }
+    @Test
+    public void toStringFRTest(){
+        Random random = ThreadLocalRandom.current();
+        final String title = "osef";
+        Movie movie = new Movie(title,MovieState.CHILDRENS);
+        final int daysRented = random.nextInt(10);
+        Rental rental = new Rental(movie, daysRented);
+
+        final String pural = daysRented > 1 ? "s" : "";
+        final String rentalStr = rental.toStringFR();
+        final String rentalStrFRExpected = new StringBuilder()
+         .append(" - \"").append(title)
+         .append("\" de type ")
+         .append(movie.getPriceCode())
+         .append(" pendant ").append(daysRented)
+         .append(" jour").append(pural)
+         .toString();
+        final boolean areEqual = rentalStr.equals(rentalStrFRExpected);
+        assertEquals(true, areEqual);
+    }
+
+    
+    @Test
+    public void valueTest(){
+        System.out.println(this.title);
+        System.out.println(this.movie.getTitle());
+        assertEquals(this.title, this.movie.getTitle());
     }
 }

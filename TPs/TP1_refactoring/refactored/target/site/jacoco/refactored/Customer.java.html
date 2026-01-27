@@ -4,49 +4,53 @@ import java.util.ArrayList;
 
 public class Customer {
 	private String name;
-<span class="nc" id="L7">	private ArrayList&lt;Rental&gt; rentals = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L7">	private ArrayList&lt;Rental&gt; rentals = new ArrayList&lt;&gt;();</span>
 
-<span class="nc" id="L9">	public Customer(String name) {</span>
-<span class="nc" id="L10">		this.name = name;</span>
-<span class="nc" id="L11">	}</span>
+<span class="fc" id="L9">	public Customer(String name) {</span>
+<span class="fc" id="L10">		this.name = name;</span>
+<span class="fc" id="L11">	}</span>
 
 	public void addRental(Rental rental) {
-<span class="nc" id="L14">		this.rentals.add(rental);</span>
-<span class="nc" id="L15">	}</span>
+<span class="fc" id="L14">		this.rentals.add(rental);</span>
+<span class="fc" id="L15">	}</span>
 
+	public Rental getRental(int i){
+<span class="fc" id="L18">		return this.rentals.get(i);		</span>
+	}
+	
 	public String statement() {
-<span class="nc" id="L18">		double totalAmount = 0;</span>
-<span class="nc" id="L19">		int frequentRenterPoints = 0;</span>
-<span class="nc" id="L20">		StringBuilder result = new StringBuilder(</span>
-<span class="nc" id="L21">			String.format(</span>
+<span class="fc" id="L22">		double totalAmount = 0;</span>
+<span class="fc" id="L23">		int frequentRenterPoints = 0;</span>
+<span class="fc" id="L24">		StringBuilder result = new StringBuilder(</span>
+<span class="fc" id="L25">			String.format(</span>
 				&quot;Rental Record for %s\n&quot;,
-<span class="nc" id="L23">				this.getName()</span>
+<span class="fc" id="L27">				this.getName()</span>
 			)
 		);
-<span class="nc" id="L26">		int index = 0;</span>
-<span class="nc bnc" id="L27" title="All 2 branches missed.">		for (; index &lt; this.rentals.size(); index++) {</span>
-<span class="nc" id="L28">			Rental current = rentals.get(index);</span>
-<span class="nc bnc" id="L29" title="All 2 branches missed.">			if (current.canEarnExtraPoints())</span>
-<span class="nc" id="L30">				frequentRenterPoints++;</span>
-<span class="nc" id="L31">			result.append(current.toString());</span>
-<span class="nc" id="L32">			totalAmount += current.getPointsAmount();</span>
+<span class="fc" id="L30">		int index = 0;</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">		for (; index &lt; this.rentals.size(); index++) {</span>
+<span class="fc" id="L32">			Rental current = rentals.get(index);</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">			if (current.canEarnExtraPoints())</span>
+<span class="fc" id="L34">				frequentRenterPoints++;</span>
+<span class="fc" id="L35">			result.append(current.toString());</span>
+<span class="fc" id="L36">			totalAmount += current.getPointsAmount();</span>
 		}
-<span class="nc" id="L34">		result.append(</span>
-<span class="nc" id="L35">			String.format(</span>
+<span class="fc" id="L38">		result.append(</span>
+<span class="fc" id="L39">			String.format(</span>
 				&quot;Amount owned is %f\n&quot;, 
-<span class="nc" id="L37">				totalAmount</span>
+<span class="fc" id="L41">				totalAmount</span>
 			)
 		);
 		// 2 ways of seeing things : 
 		// 1 : use only append() on the stringBuilder (difficul to see String final rendering)
 		// 2 : use String.format() to see in a better way, string organization
-<span class="nc" id="L43">		result.append(</span>
-<span class="nc" id="L44">			String.format(</span>
+<span class="fc" id="L47">		result.append(</span>
+<span class="fc" id="L48">			String.format(</span>
 				&quot;You earned %d \&quot; frequent renter points\&quot;&quot;, 
-<span class="nc" id="L46">				-1+index+frequentRenterPoints</span>
+<span class="fc" id="L50">				-1+index+frequentRenterPoints</span>
 			)
 		);
-<span class="nc" id="L49">		return result.toString();</span>
+<span class="fc" id="L53">		return result.toString();</span>
 	}
 	/**
 	 * permet d'obtenir une description du statement en français
@@ -54,29 +58,29 @@ public class Customer {
 	 * (containte du prof d'avoir un affichage spécifique)
 	 */
 	public String statementFR(){
-<span class="nc" id="L57">		StringBuilder result = new StringBuilder(String.format(</span>
+<span class="fc" id="L61">		StringBuilder result = new StringBuilder(String.format(</span>
 			&quot;%s a loue des films:\n&quot;, 
 			this.name
 		));
-<span class="nc" id="L61">		final int leng = this.rentals.size();</span>
+<span class="fc" id="L65">		final int leng = this.rentals.size();</span>
 		Rental current;
-<span class="nc bnc" id="L63" title="All 2 branches missed.">		for (int i = 0; i &lt; leng; i++) {</span>
-<span class="nc" id="L64">			current = rentals.get(i);</span>
-<span class="nc" id="L65">			result.append(current.toStringFR())</span>
-<span class="nc bnc" id="L66" title="All 4 branches missed.">			 .append(leng &gt; 0 &amp;&amp; i != leng-1 ? &quot;,&quot; : &quot;.&quot;)	</span>
-<span class="nc" id="L67">			 .append(&quot;\n&quot;);</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">		for (int i = 0; i &lt; leng; i++) {</span>
+<span class="fc" id="L68">			current = rentals.get(i);</span>
+<span class="fc" id="L69">			result.append(current.toStringFR())</span>
+<span class="pc bpc" id="L70" title="1 of 4 branches missed.">			 .append(leng &gt; 0 &amp;&amp; i != leng-1 ? &quot;,&quot; : &quot;.&quot;)	</span>
+<span class="fc" id="L71">			 .append(&quot;\n&quot;);</span>
 		}
-<span class="nc" id="L69">		return result.toString();</span>
+<span class="fc" id="L73">		return result.toString();</span>
 	}
 
 
 	public String getName() {
-<span class="nc" id="L74">		return this.name;</span>
+<span class="fc" id="L78">		return this.name;</span>
 	}
 
 	public void setName(String name){
-<span class="nc" id="L78">		this.name = name;</span>
-<span class="nc" id="L79">	}</span>
+<span class="fc" id="L82">		this.name = name;</span>
+<span class="fc" id="L83">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

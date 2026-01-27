@@ -14,6 +14,10 @@ public class Customer {
 		this.rentals.add(rental);
 	}
 
+	public Rental getRental(int i){
+		return this.rentals.get(i);		
+	}
+	
 	public String statement() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;

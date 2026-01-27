@@ -1,2 +1,3 @@
-/autofs/unitytravail/travail/ftthat/GL_SoftwareArchitecture/TPs/TP1_refactoring/refactored/src/test/java/main/RentalTest.java
-/autofs/unitytravail/travail/ftthat/GL_SoftwareArchitecture/TPs/TP1_refactoring/refactored/src/test/java/main/MovieTest.java
+/autofs/unitytravail/travail/ftthat/GL_SoftwareArchitecture/TPs/TP1_refactoring/refactored/src/test/java/refactored/MovieTest.java
+/autofs/unitytravail/travail/ftthat/GL_SoftwareArchitecture/TPs/TP1_refactoring/refactored/src/test/java/refactored/RentalTest.java
+/autofs/unitytravail/travail/ftthat/GL_SoftwareArchitecture/TPs/TP1_refactoring/refactored/src/test/java/refactored/CustomerTest.java
