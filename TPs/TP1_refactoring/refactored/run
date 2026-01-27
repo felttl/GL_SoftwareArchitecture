@@ -1,3 +1,32 @@
-#!bin/bash
-# on my mac computer do "source ./refactored/run" from the repertory TP1_REFACTORING
-/usr/bin/env /Users/$USER/.gradle/jdks/eclipse_adoptium-11-aarch64-os_x.2/jdk-11.0.28+6/Contents/Home/bin/java -cp /Users/$USER/Documents/GitHub/GL_SoftwareArchitecture/TPs/TP1_refactoring/refactored/target/classes refactored.Main 
+#!/usr/bin/env bash
+
+excMacos(){
+    javapathM="/Users/$USER/.gradle/jdks/eclipse_adoptium-11-aarch64-os_x.2/jdk-11.0.28+6/Contents/Home/bin/java"
+    claspathM="$(pwd)/target/classes"
+    /usr/bin/env $javapathM -cp $claspathM refactored.Main
+}
+excLinux(){
+    # chemin vers le java installé sur Debian (à adapter selon ta machine)
+    # exemple classique si installé via apt :
+    javapathL="/usr/lib/jvm/java-11-openjdk-amd64/bin/java"
+    classpathL="$(pwd)/target/classes"
+    /usr/bin/env $javapathL -cp $classpathL refactored.Main
+}
+main(){
+    space="--------------------------"
+    echo "$space running $space"
+    OS="$(uname)"
+
+    if [ "$OS" == "Darwin" ]; then
+        excMacos
+    elif [ "$OS" == "Linux" ]; then
+        excLinux
+    else
+        echo "Système non reconnu (non Unix): $OS"
+        exit 1
+    fi    
+}
+
+main
+
+

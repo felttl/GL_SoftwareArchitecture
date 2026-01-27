@@ -22,21 +22,21 @@ public class Rental {
      * from the rental
      */
     public double getPointsAmount(){
-<span class="nc" id="L25">        double amount = 0.d;</span>
-<span class="nc" id="L26">        final double valueFactor = 1.5d;</span>
-<span class="nc" id="L27">        MovieState type = this.movie.getPriceCode();</span>
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        if(type == MovieState.REGULAR){</span>
-<span class="nc" id="L29">            amount += 2;</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">            if(this.daysRented &gt; 2)</span>
-<span class="nc" id="L31">                amount += this.daysRented * valueFactor - 3;</span>
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        } else if (type == MovieState.NEW_RELEASE) {</span>
-<span class="nc" id="L33">            amount += this.daysRented * valueFactor * 2;</span>
-<span class="nc bnc" id="L34" title="All 2 branches missed.">        } else if (type == MovieState.CHILDRENS) {</span>
-<span class="nc" id="L35">            amount += 1.5;</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">            if (this.daysRented &gt; 3)</span>
-<span class="nc" id="L37">                amount += this.daysRented * valueFactor - 4.5;</span>
+<span class="fc" id="L25">        double amount = 0.d;</span>
+<span class="fc" id="L26">        final double valueFactor = 1.5d;</span>
+<span class="fc" id="L27">        MovieState type = this.movie.getPriceCode();</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if(type == MovieState.REGULAR){</span>
+<span class="fc" id="L29">            amount += 2;</span>
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">            if(this.daysRented &gt; 2)</span>
+<span class="fc" id="L31">                amount += this.daysRented * valueFactor - 3;</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        } else if (type == MovieState.NEW_RELEASE) {</span>
+<span class="fc" id="L33">            amount += this.daysRented * valueFactor * 2;</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        } else if (type == MovieState.CHILDRENS) {</span>
+<span class="fc" id="L35">            amount += 1.5;</span>
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">            if (this.daysRented &gt; 3)</span>
+<span class="fc" id="L37">                amount += this.daysRented * valueFactor - 4.5;</span>
         }
-<span class="nc" id="L39">        return amount;</span>
+<span class="fc" id="L39">        return amount;</span>
     }
 
     /**
@@ -44,8 +44,8 @@ public class Rental {
      * @return if the bonus is given or not
      */
     public boolean canEarnExtraPoints(){
-<span class="nc bnc" id="L47" title="All 2 branches missed.">        final boolean isRelease = this.movie.getPriceCode() == MovieState.NEW_RELEASE;</span>
-<span class="nc bnc" id="L48" title="All 4 branches missed.">        return isRelease &amp;&amp; this.daysRented &gt; 1;</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        final boolean isRelease = this.movie.getPriceCode() == MovieState.NEW_RELEASE;</span>
+<span class="fc bfc" id="L48" title="All 4 branches covered.">        return isRelease &amp;&amp; this.daysRented &gt; 1;</span>
     }
 
     /**
