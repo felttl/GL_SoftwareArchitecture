@@ -125,7 +125,6 @@ public class CustomerTest {
             this.name+" a loue des films:\n"
         );
         short numberOfTRentals = 4;
-        
         for (int j = 0; j < numberOfTRentals; j++) {
             final Rental rdRental = this.randRental();
             this.customer.addRental(rdRental);

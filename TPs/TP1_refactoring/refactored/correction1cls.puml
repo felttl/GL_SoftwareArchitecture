@@ -1,0 +1,43 @@
+@startuml
+
+
+class Rental{
+    + getMovie(): Movie
+    + getDaysRented(): int
+    + <color:blue>getPrice(): double</color>
+}
+class Customer{
+    - totalPrice(): double
+    - totalFP(): int
+    - <color:red>totalPrice(Rental rental): double</color>
+    
+}
+class Movie{
+    + getPriceCode(): ???
+    + setPriceCode(??? code): ???
+    + getTitle(): String
+}
+class PriceCode{
+    
+}
+class A extends PriceCode {}
+class B extends PriceCode {}
+class C extends PriceCode {}
+
+A --* Movie
+B --* Movie
+C --* Movie
+
+Movie o- PriceCode
+Rental "*" --o Customer
+Movie "1" --o Rental
+
+legend
+| Couleur | Role |
+|<#ff0000>| removed |
+|<#00ff00>| added |
+|<#0000ff>| moved |
+endlegend
+
+
+@enduml
