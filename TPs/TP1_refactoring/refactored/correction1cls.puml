@@ -20,11 +20,11 @@ class Movie{
 class PriceCode{
     
 }
-class A extends PriceCode {}
+class DefaultPriceCode extends PriceCode {}
 class B extends PriceCode {}
 class C extends PriceCode {}
 
-A --* Movie
+DefaultPriceCode --* Movie
 B --* Movie
 C --* Movie
 
