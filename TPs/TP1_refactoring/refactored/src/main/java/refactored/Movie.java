@@ -5,7 +5,9 @@ public class Movie {
     private String title;
     private MovieState priceCode;
 
-    public Movie(String title, MovieState priceCode) {
+    public static final PriceCode CHILDREN = Movie.CHILDRENS;
+
+    public Movie(String title, PriceCode priceCode) {
         this.title = title;
         this.priceCode = priceCode;
     }
@@ -20,6 +22,10 @@ public class Movie {
 
     public String getTitle() {
         return this.title;
+    }
+
+    public double getPrice(int days){
+        return movie.getPrice(daysRented)
     }
 
 }
