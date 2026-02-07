@@ -25,7 +25,7 @@ public class Movie {
     }
 
     public double getPrice(int days){
-        return movie.getPrice(daysRented)
+        return movie.getPrice(daysRented);
     }
 
 }
