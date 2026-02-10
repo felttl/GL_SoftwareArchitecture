@@ -14,7 +14,9 @@ class Customer{
 }
 class Movie{
     + getPriceCode(): ???
-    + setPriceCode(??? code): ???
+    + setPriceCode(int code): void
+    // delegation 
+    
     + getTitle(): String
 }
 class PriceCode{
