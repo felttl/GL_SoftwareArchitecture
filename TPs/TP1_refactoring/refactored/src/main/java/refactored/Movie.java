@@ -2,8 +2,10 @@ package refactored;
 
 public class Movie {
 
+    private static final PriceCode CHILDRENS = null;
+
     private String title;
-    private MovieState priceCode;
+    private PriceCode priceCode;
 
     public static final PriceCode CHILDREN = Movie.CHILDRENS;
 
@@ -12,11 +14,11 @@ public class Movie {
         this.priceCode = priceCode;
     }
 
-    public MovieState getPriceCode() {
+    public PriceCode getPriceCode() {
         return this.priceCode;
     }
 
-    public void setPriceCode(MovieState priceCode) {
+    public void setPriceCode(PriceCode priceCode) {
         this.priceCode = priceCode;
     }
 

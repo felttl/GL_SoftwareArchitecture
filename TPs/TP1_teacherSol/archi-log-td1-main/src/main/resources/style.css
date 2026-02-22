@@ -1,0 +1,19 @@
+
+.custom-rectangle {
+    -fx-width: 50%;
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+.list-view {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #444;
+    -fx-border-width: 2;
+}
+
+
