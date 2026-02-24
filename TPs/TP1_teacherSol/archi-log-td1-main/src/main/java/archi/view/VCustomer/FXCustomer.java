@@ -102,12 +102,12 @@ public class FXCustomer extends Application {
       }
     });
 
-    // IMPORTANT : extensibilité
+    // extensibilité
     listLeftDoneRentals.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
     listLeftActiveRentals.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
     listRightAllMovies.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
-    // --- GRID STRUCTURE
+    // GRID STRUCTURE
     GridPane grid = new GridPane();
     grid.setHgap(20);
     grid.setVgap(10);
@@ -128,9 +128,6 @@ public class FXCustomer extends Application {
 
     grid.add(tfLeft, 0, 1);
     grid.add(tfRight, 1, 1);
-
-    // On enlève le span 2 colonnes → tfCenter ne va plus au milieu
-    // grid.add(tfCenter, 0, 2, 2, 1);  <-- SUPPRIMÉ
 
     // Colonne gauche restructurée proprement
     VBox leftColumn = new VBox(10,
@@ -157,6 +154,13 @@ public class FXCustomer extends Application {
 
     Button btnDrop = new Button("Drop");
     btnDrop.getStyleClass().add("btnDrop");
+    // messages d'erreurs en bas
+    Button btnRent = new Button("Rent");
+    TextField tfSystem = new TextField();
+    tfSystem.setPromptText("");
+    tfSystem.setEditable(false);
+    tfSystem.getStyleClass().add("system-field");
+    tfSystem.setMaxWidth(Double.MAX_VALUE);
     // les évènements c'est dans la View ou le Controller ?
 
     // btnDrop.setOnAction(e -> {
@@ -169,12 +173,7 @@ public class FXCustomer extends Application {
     //         return;
     //     }
     // });
-    Button btnRent = new Button("Rent");
-    TextField tfSystem = new TextField();
-    tfSystem.setPromptText("placeholderSys");
-    tfSystem.setEditable(false);
-    tfSystem.getStyleClass().add("system-field");
-    tfSystem.setMaxWidth(Double.MAX_VALUE);
+
 
     // --- Barre basse boutons
     HBox bottomBox = new HBox(10, btnDrop, btnRent);

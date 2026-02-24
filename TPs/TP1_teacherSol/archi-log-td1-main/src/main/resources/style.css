@@ -124,5 +124,11 @@
     -fx-padding: 0;
 }
 
+.system-field{
+    -fx-background-color: transparent;
+    -fx-text-fill: #c23434;
+    -fx-prompt-text-fill: #c23434;
+
+}
 
 /* end scroll bar */
