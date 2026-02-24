@@ -1,0 +1,6 @@
+.vscode
+.mvn
+target
+*.zip
+.settings
+.idea
