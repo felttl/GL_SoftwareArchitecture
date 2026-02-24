@@ -22,6 +22,10 @@ public class Customer {
 		return _name;
 	}
 
+	public List<Rental> getRentals() {
+		return _rentals;
+	}
+
 	public String statement() {
 		StringBuilder result = new StringBuilder("Rental Record for " + getName() + "\n");
 		for (Rental r : _rentals) {

@@ -1,12 +1,28 @@
 
+/* not web css */
+
+.view {
+    -fx-background-color: #444;
+}
+
 .custom-rectangle {
     -fx-width: 50%;
     -fx-background-color: white;
     -fx-background-radius: 10;
-
     -fx-border-color: white;
     -fx-border-width: 2;
     -fx-border-radius: 10;
+}
+
+.list-view, .text-field{
+    -fx-border-color: none;
+    -fx-border-radius: 0px;
+}
+
+.text-field {
+    -fx-background-color: #5867eb;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #ffffffc1; /*placeholder*/
 }
 
 .list-view {
@@ -14,6 +30,99 @@
     -fx-border-radius: 10;
     -fx-border-color: #444;
     -fx-border-width: 2;
+    -fx-padding: 3px;
+}
+
+.list-view .list-cell {
+    -fx-background-radius: 10;
+}
+
+.list-view:selected {
+    -fx-border-style: solid;
+    -fx-border-width: 10px;
+}
+
+.h-box{
+
+}
+
+.list-view .list-cell:selected {
+    -fx-text-fill: white;
+    -fx-background-color: #4444447e;
+    -fx-background-radius: 10;
+}
+
+.button, .button:hover {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10;    
+}
+
+.button {
+    -fx-background-color: #444;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #444444a5;
+    -fx-text-fill: white;
 }
 
 
+.btnDrop{
+    -fx-background-color: #dc5454;
+    -fx-text-fill: white;
+}
+.btnDrop:hover{
+    -fx-background-color: #dc5454b1;
+}
+
+
+/* to delete here (for testing) */
+
+
+
+
+/* ---------------------------- */
+
+
+
+/* scroll bar default removed, moved to modern */
+
+.scroll-bar:vertical {
+    -fx-pref-width: 10;
+    -fx-background-color: transparent;
+
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 8;
+    -fx-background-color: transparent;
+
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #4a4a4a;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px;
+}
+
+/* Supprimer les flèches */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: red;
+    -fx-padding: 0;
+}
+
+/* Supprimer les flèches internes */
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: "";
+    -fx-padding: 0;
+}
+
+
+/* end scroll bar */

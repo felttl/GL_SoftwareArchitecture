@@ -17,9 +17,10 @@ public class Movie implements Cloneable{
         _priceCode = priceCode;
     }
 
-    public Movie clone(){
+    @Override
+    public Movie clone() {
         try {
-            Movie m =  (Movie)super.clone();
+            Movie m = (Movie)super.clone();
             return m;
         } catch (CloneNotSupportedException e) {
             System.err.println("clone not implemented for Movie");
@@ -45,6 +46,11 @@ public class Movie implements Cloneable{
 
     public int getFrequentRenterPoints(int daysRented, int limit){
         return _priceCode.getFrequentRenterPoints(daysRented, limit);
+    }
+
+    @Override
+    public String toString() {
+        return _title;
     }
 
 }

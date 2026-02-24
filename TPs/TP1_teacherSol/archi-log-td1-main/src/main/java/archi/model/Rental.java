@@ -21,4 +21,15 @@ public class Rental {
 	public int getRenterPoints(){
 		return _movie.getFrequentRenterPoints(_daysRented, _number_of_days_for_eligible_points);
 	}
+
+	@Override
+	public String toString() {
+		return _movie.getTitle()+"rented: "+
+		_daysRented+" "+this._daysRented+" days";
+	}
+
+	public int getDaysRented() {
+		return _daysRented;
+	}
+
 }
