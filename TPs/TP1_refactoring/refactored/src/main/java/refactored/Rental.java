@@ -53,9 +53,10 @@ public class Rental {
      * 
      * (sortie d'affichage par defaut donne par le code
      * avant refactoring (sortie est exactement la même))
+     * FORME NON MODIFIABLE
      */
     @Override
-    public String toString(){
+    final public String toString(){
         return String.format(
             "%s %s %s %f %s",
             "\t", this.movie.getTitle(),

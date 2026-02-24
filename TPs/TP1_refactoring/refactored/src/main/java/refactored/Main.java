@@ -25,5 +25,8 @@ public class Main {
             4) 
         );
         System.out.println(customer.statementFR());
+        System.out.println();
+        System.out.println(customer.statement());
+
     }
 }
