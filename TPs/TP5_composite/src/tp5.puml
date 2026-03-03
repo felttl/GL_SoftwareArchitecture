@@ -1,0 +1,36 @@
+@startuml
+
+interface BehaviorSoldier {
+    --
+	+ getName(): String
+	+ getHealthPoints(): float
+	+ alive(): boolean
+	+ heal()
+	+ parry(float force): float 
+    <color:brown>// Returns the force that the soldier did not absorb</color>
+	+ strike(): float
+}
+class BehaviorExtension implements BehaviorSoldier {
+    ~ soldier: BehaviorSoldier
+}
+class ConstBehavior{
+
+}
+class Army {
+
+}
+class unreadable1 {
+
+}
+class std {
+
+}
+class log{}
+ConstBehavior --|> BehaviorSoldier
+
+BehaviorSoldier "1" --o Army
+BehaviorSoldier --o unreadable1
+std -- unreadable1
+log ..|> BehaviorSoldier
+
+@enduml
