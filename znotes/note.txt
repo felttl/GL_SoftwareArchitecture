@@ -1,0 +1,5 @@
+résumé DP : 
+
+
+- Abstract factory : changer les classes de familles (exemple changement d'epoque dans un jeu avec stone age, golden age etc...)
+
