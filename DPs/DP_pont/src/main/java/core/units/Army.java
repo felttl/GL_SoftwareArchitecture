@@ -1,5 +1,8 @@
 package core.units;
 
+import java.util.List;
+
+import core.BehaviorSoldier;
 import core.Unit;
 
 public class Army implements Unit {
@@ -9,12 +12,10 @@ public class Army implements Unit {
     // prot"shit
     protected String name;
 
-    public Army(String name, List<BehaviorSoldier> units){
-        this.name = name;
-        this.units = units;
-    }
+    public Army(){
+        
 
-    // impls here :
+    }
     
 
 }
