@@ -1,4 +1,4 @@
-package archi.view.VCustomer;
+ package archi.view.VCustomer;
 
 import java.util.List;
 import java.util.Objects;
